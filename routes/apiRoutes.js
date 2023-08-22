@@ -27,7 +27,7 @@ router.post("/notes", (req,res) => {
 
 router.delete("/notes/:id", (req,res) => {
     notes.splice(req.params.id, 1)
-    notes = notes.filter((note) => note.id !== req.params.id);
+    notes = notes.filter((note, index) => index != req.params.id);
     saveNotes()
     res.json()
 })
